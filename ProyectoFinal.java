@@ -22,11 +22,17 @@ JFrame frame = new JFrame("Mi primera Ventana");
   etiqueta_4.setbounds(x:300, y:90, width:150,height:30);
   button.set.Bounds(x:100, y:120, width:150, height:30); 
   nombre_usuario.setBounds(x:100, y:180, width:200, height:30);
-  textField.setBounds(x:200, y:160, width:200, height:30); 
+  textField.setBounds(x:200, y:160, width:200, height:30);
 
-  
+  // Agregar los componentes al JFrame
+  frame.add(etiqueta_anuncio);
+  frame.add(etiqueta_2);
+  frame.add(etiqueta_3);
+  frame.add(etiqueta_4);
+  frame.add(button);
+  frame.add(nombre_usuario);
 
-
-  
-}
+  // Hacer visible la ventana
+  frame.setVisible(b:true);
+  }
 }
