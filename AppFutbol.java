@@ -229,3 +229,141 @@ class PantallaCrearPersonaje extends JFrame {
     }
 }
 
+// Pantalla de tendencias
+class PantallaTendencias extends JFrame {
+    public PantallaTendencias() {
+        setTitle("Tendencias de Fútbol");
+        setSize(400, 600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(null);
+
+        JLabel titulo = new JLabel("TENDENCIAS", SwingConstants.CENTER);
+        titulo.setFont(new Font("Arial", Font.BOLD, 20));
+        titulo.setBounds(50, 20, 300, 30);
+        add(titulo);
+
+        JLabel noticia1 = new JLabel("<html>Victoria en la Copa del Rey: El Real Madrid ganó 1-0 a la Real Sociedad...</html>");
+        noticia1.setBounds(30, 60, 300, 40);
+        add(noticia1);
+
+        JLabel resultado = new JLabel("Resultados en vivo");
+        resultado.setBounds(30, 120, 200, 20);
+        add(resultado);
+
+        JLabel recomendacion = new JLabel("<html>\"Recomendaciones para ti\": El MADRID se clasificó...</html>");
+        recomendacion.setBounds(30, 160, 300, 40);
+        add(recomendacion);
+
+        JLabel clips = new JLabel("Clips de partidos");
+        clips.setFont(new Font("Arial", Font.BOLD, 14));
+        clips.setBounds(120, 220, 200, 20);
+        add(clips);
+
+        JButton menuButton = new JButton("Menú principal");
+        menuButton.setBounds(30, 500, 110, 30);
+        add(menuButton);
+
+        JButton inicioButton = new JButton("Inicio");
+        inicioButton.setBounds(150, 500, 80, 30);
+        add(inicioButton);
+
+        JButton juegosButton = new JButton("Juegos y entretenimiento");
+        juegosButton.setBounds(240, 500, 140, 30);
+        add(juegosButton);
+
+        inicioButton.addActionListener(e -> {
+            dispose();
+            new PantallaInicio();
+        });
+
+        menuButton.addActionListener(e -> {
+            dispose();
+            new PantallaPrincipal();
+        });
+
+        juegosButton.addActionListener(e -> {
+            dispose();
+            new PantallaJuegos();
+        });
+
+        setVisible(true);
+    }
+}
+
+// Pantalla de juegos
+class PantallaJuegos extends JFrame {
+    public PantallaJuegos() {
+        setTitle("Pasatiempo - Juegos");
+        setSize(400, 600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(null);
+
+        JLabel titulo = new JLabel("PASATIEMPO", SwingConstants.CENTER);
+        titulo.setFont(new Font("Arial", Font.BOLD, 20));
+        titulo.setBounds(100, 10, 200, 30);
+        add(titulo);
+
+        JLabel subtitulo = new JLabel("Juegos competitivos", SwingConstants.CENTER);
+        subtitulo.setFont(new Font("Arial", Font.PLAIN, 14));
+        subtitulo.setBounds(120, 40, 160, 20);
+        add(subtitulo);
+
+        // Juego 1
+        JLabel img1 = new JLabel(new ImageIcon("footchinko.jpg"));
+        img1.setBounds(40, 70, 150, 100);
+        add(img1);
+
+        JButton juego1 = new JButton("Juego 1");
+        juego1.setBounds(210, 100, 100, 30);
+        add(juego1);
+
+        // Juego 2
+        JLabel img2 = new JLabel(new ImageIcon("juego2.jpg"));
+        img2.setBounds(40, 180, 300, 100);
+        add(img2);
+
+        JButton juego2 = new JButton("Juego 2");
+        juego2.setBounds(210, 210, 100, 30);
+        add(juego2);
+
+        // Juego 3
+        JLabel img3 = new JLabel(new ImageIcon("juego3.jpg"));
+        img3.setBounds(40, 290, 300, 100);
+        add(img3);
+
+        JButton juego3 = new JButton("Juego 3");
+        juego3.setBounds(210, 320, 100, 30);
+        add(juego3);
+
+        // Navegación
+        JButton menuButton = new JButton("Menú principal");
+        menuButton.setBounds(20, 500, 110, 30);
+        add(menuButton);
+
+        JButton inicioButton = new JButton("Inicio");
+        inicioButton.setBounds(140, 500, 80, 30);
+        add(inicioButton);
+
+        JButton juegosButton = new JButton("Juegos y entretenimiento");
+        juegosButton.setBounds(230, 500, 140, 30);
+        add(juegosButton);
+
+        menuButton.addActionListener(e -> {
+            dispose();
+            new PantallaPrincipal();
+        });
+
+        inicioButton.addActionListener(e -> {
+            dispose();
+            new PantallaInicio();
+        });
+
+        juegosButton.addActionListener(e -> {
+            dispose();
+            new PantallaJuegos();
+        });
+
+        // Mostrar la pantalla
+        setVisible(true);
+    }
+}
