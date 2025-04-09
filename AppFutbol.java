@@ -150,3 +150,82 @@ class PantallaPrincipal extends JFrame {
         setVisible(true);
     }
 }
+
+// Pantalla para crear personaje
+class PantallaCrearPersonaje extends JFrame {
+    private String equipoSeleccionado = "";
+    private String generoSeleccionado = "";
+    private String habilidad1 = "";
+    private String habilidad2 = "";
+
+    public PantallaCrearPersonaje() {
+        setTitle("Creador de Personaje");
+        setSize(400, 600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(null);
+
+        JLabel titulo = new JLabel("Crea tu Jugador", SwingConstants.CENTER);
+        titulo.setFont(new Font("Arial", Font.BOLD, 18));
+        titulo.setBounds(50, 30, 300, 30);
+        add(titulo);
+
+        JLabel lblEquipo = new JLabel("Equipo Preferido:");
+        lblEquipo.setBounds(50, 70, 150, 20);
+        add(lblEquipo);
+
+        String[] equipos = {"Real Madrid", "Barcelona", "Atlético de Madrid", "Real Sevilla", "Real Sociedad", "Valencia CF"};
+        JComboBox<String> comboEquipos = new JComboBox<>(equipos);
+        comboEquipos.setBounds(200, 70, 150, 20);
+        comboEquipos.addActionListener(e -> equipoSeleccionado = (String) comboEquipos.getSelectedItem());
+        add(comboEquipos);
+
+        JLabel nombreLabel = new JLabel("Nombre del jugador:");
+        nombreLabel.setBounds(50, 100, 150, 25);
+        add(nombreLabel);
+
+        JTextField nombreField = new JTextField();
+        nombreField.setBounds(200, 100, 150, 25);
+        add(nombreField);
+
+        JLabel lblGenero = new JLabel("Género:");
+        lblGenero.setBounds(50, 140, 150, 20);
+        add(lblGenero);
+
+        String[] generos = {"Masculino", "Femenino"};
+        JComboBox<String> comboGenero = new JComboBox<>(generos);
+        comboGenero.setBounds(200, 140, 150, 20);
+        comboGenero.addActionListener(e -> generoSeleccionado = (String) comboGenero.getSelectedItem());
+        add(comboGenero);
+
+        JLabel lblHabilidades = new JLabel("Habilidades (elige 2):");
+        lblHabilidades.setBounds(50, 180, 200, 20);
+        add(lblHabilidades);
+
+        String[] habilidades = {"Correr rápido", "Agilidad sorprendente", "Aguante máximo", "Goleador de Oro", "Mejor Receptor"};
+        JComboBox<String> comboHabilidad1 = new JComboBox<>(habilidades);
+        comboHabilidad1.setBounds(50, 210, 150, 20);
+        comboHabilidad1.addActionListener(e -> habilidad1 = (String) comboHabilidad1.getSelectedItem());
+        add(comboHabilidad1);
+
+        JComboBox<String> comboHabilidad2 = new JComboBox<>(habilidades);
+        comboHabilidad2.setBounds(200, 210, 150, 20);
+        comboHabilidad2.addActionListener(e -> habilidad2 = (String) comboHabilidad2.getSelectedItem());
+        add(comboHabilidad2);
+
+        JButton finalizarButton = new JButton("Finalizar personaje");
+        finalizarButton.setBounds(120, 260, 160, 30);
+        add(finalizarButton);
+   
+        finalizarButton.addActionListener(e -> {
+            String nombre = nombreField.getText().trim();
+            if (!nombre.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "¡Felicidades " + nombre + ", has creado tu personaje exitosamente!");
+            } else {
+                JOptionPane.showMessageDialog(null, "Por favor, ingresa un nombre.");
+            }
+        });
+
+        setVisible(true);
+    }
+}
+
