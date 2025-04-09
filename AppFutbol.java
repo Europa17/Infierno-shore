@@ -80,3 +80,73 @@ class PantallaInicio extends JFrame {
         setVisible(true);
     }
 }
+
+// Segunda pantalla
+class PantallaPrincipal extends JFrame {
+    public PantallaPrincipal() {
+        setTitle("Noticias y Grupos de Fútbol");
+        setSize(400, 600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(null);
+
+        JLabel titulo = new JLabel("Noticias de Fútbol", SwingConstants.CENTER);
+        titulo.setFont(new Font("Arial", Font.BOLD, 16));
+        titulo.setBounds(50, 20, 300, 30);
+        add(titulo);
+
+        JLabel noticia = new JLabel("<html>EL REAL MADRID LOGRÓ EL TÍTULO TRAS UNA EDICIÓN IMPECABLE EN LA QUE NO CONOCIÓ LA DERROTA (9 VICTORIAS Y 4 EMPATES).</html>", SwingConstants.CENTER);
+        noticia.setBounds(50, 60, 300, 60);
+        add(noticia);
+
+        JLabel desafio = new JLabel("<html><b>Desafío del día:</b> Intenta hacer 30 dominadas sin que se caiga el balón</html>", SwingConstants.CENTER);
+        desafio.setBounds(50, 130, 300, 40);
+        add(desafio);
+
+        JLabel grupos = new JLabel("<html><b>Grupos que te pueden interesar:</b><br>- Fans de Hala Madrid<br>- Fans de Karim Benzema<br>- Liga Mexicana</html>", SwingConstants.CENTER);
+        grupos.setBounds(50, 180, 300, 60);
+        add(grupos);
+
+        JLabel jugador = new JLabel("<html><b>Jugador del momento:</b> Mbappé se ha colocado como uno de los mejores jugadores por su impecable hazaña en esta temporada</html>", SwingConstants.CENTER);
+        jugador.setBounds(50, 250, 300, 60);
+        add(jugador);
+
+        JButton menuButton = new JButton("Menú principal");
+        menuButton.setBounds(30, 320, 120, 30);
+        add(menuButton);
+
+        JButton inicioButton = new JButton("Inicio");
+        inicioButton.setBounds(155, 320, 80, 30);
+        add(inicioButton);
+
+        JButton juegosButton = new JButton("Juegos");
+        juegosButton.setBounds(240, 320, 120, 30);
+        add(juegosButton);
+
+        JButton crearPersonajeButton = new JButton("Crear personaje");
+        crearPersonajeButton.setBounds(120, 370, 128, 30);
+        add(crearPersonajeButton);
+
+        // botón "Juegos"
+        juegosButton.addActionListener(e -> {
+            dispose();
+            new PantallaJuegos();
+        });
+
+        crearPersonajeButton.addActionListener(e -> {
+            dispose();
+            new PantallaCrearPersonaje();
+        });
+
+        inicioButton.addActionListener(e -> {
+            dispose();
+            new PantallaInicio();
+        });
+
+        menuButton.addActionListener(e -> {
+            dispose();
+            new PantallaTendencias();
+        });
+
+        setVisible(true);
+    }
+}
